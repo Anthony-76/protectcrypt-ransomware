@@ -7,4 +7,4 @@ These files must be just a real file sample. Not a real document and the filenam
 
 Name file example: /var/www/html/afile.pdf or /home/user/afile.docx etc....
 
-Note: This is the first release. Everyone are elcome to improve this script.
+Note: This is the first release. Everyone are welcome to improve this script.
