@@ -2,7 +2,7 @@
 
 
 # Kill process from Ransomware
-# If the ransomware strts to crypt files test present in folderfile table variable, the script will kill all pid initiated by Ransomware
+# If the ransomware starts to crypt files test present in folderfile table variable, the script will kill all pid initiated by Ransomware
 # The folderfile table variable in this script contains file such as pdf, png, xlsx, docx etc....
 # These files must be just a real file sample. Not a real document and the filename must start by "a" letter to be at the top of the folder.
 # This script is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
