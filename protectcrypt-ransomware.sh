@@ -33,6 +33,12 @@ do
         pidresidue=`ps -ef | grep $filetouched | grep -v grep | awk -F " " '{print $2}'`
         #kill process if ausearch had not match all pid
         /bin/kill -9 $pidresidue 2>&1 /dev/null
+        
+        if [ "$pidtokill" != "" ]
+        then
+             #this is a simple action to trigger an alert email
+             mail -s "Ransomware attack" -a "From: email@domain.tld" myemail@mydomain.tld < /home/user/email.txt 
+        fi
 done
 
 
