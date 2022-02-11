@@ -10,13 +10,19 @@
 
 
 # Author: Anthony Havé
-# Release version: 1.0.0 - Beta
+# Release version: 1.0.1 - Beta
 # Release date : 11 february 2022
 # Tested on Debian Plateform
 
 
 #path or file to check
 folderfile=( "/var/www/html/afile.pdf" "/home/user/afile.docx" )
+
+for file in "${folderfile[@]}"
+do
+   /sbin/auditctl -w $file -p warx
+done
+
 
 while true
 do
