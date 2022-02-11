@@ -2,7 +2,9 @@
 Simple bash script in order to avoid to crypt files or folders by ransowmare.
 
 If a ransomware starts to crypt files, the script will kill all pid initiated by Ransomware.
+
 The folderfile table variable contains files name  such as pdf, png, xlsx, docx etc....
+
 These files must be just a real file sample. Not a real document and the filename must start by "a" letter to be at the top of the folder.
 
 
