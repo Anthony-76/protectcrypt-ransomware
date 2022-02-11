@@ -18,6 +18,7 @@
 #path or file to check
 folderfile=( "/var/www/html/afile.pdf" "/home/user/afile.docx" )
 
+#log action on the above files in audit.log
 for file in "${folderfile[@]}"
 do
    /sbin/auditctl -w $file -p warx
@@ -27,6 +28,7 @@ done
 while true
 do
         filetouched=`/bin/inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g'`
+        #ausearch read audit.log to find pid process
         pidtokill=`/sbin/ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
         #kill all process
         /bin/kill -9 $pidtokill 2>&1 /dev/null
