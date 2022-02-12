@@ -33,7 +33,7 @@ do
         pidtokill=`/sbin/ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
         #kill all processes
         /bin/kill -9 $pidtokill 2>&1 /dev/null
-        pidresidue=`ps -ef | grep $filetouched | grep -v grep | awk -F " " '{print $2}'`
+        pidresidue=`ps -ef | grep $filetouched | grep -v grep | grep -v inotifywait | awk -F " " '{print $2}'`
         #kill process if ausearch had not match all PID
         /bin/kill -9 $pidresidue 2>&1 /dev/null
         
