@@ -13,6 +13,7 @@
 # Release version: 1.0.1 
 # Release date : 2 february 2022
 # Tested on Debian Plateform
+# GNU General Public License v3.0
 
 
 #path or file to check
