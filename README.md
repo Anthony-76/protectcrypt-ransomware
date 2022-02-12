@@ -26,6 +26,7 @@ This script depend of following <b>Debian packages</b>:
   
 By adjustment, you can use on other Linux OS
 
+<b>Tips: Put this file in folder that shouldn't be encrypted by ransomware (/boot for example)</b>
 
 Note: You can use also this script to check an action on files or folder by sending an email alert without kill processes. Just comment the kill process line in the bash script
 
