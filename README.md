@@ -28,3 +28,6 @@ By adjustment, you can use on other Linux OS
 
 
 Note: You can use also this script to check an action on files or folder by sending an email alert without kill processes. Just comment the kill process line in the bash script
+
+# Developped by
+<b>Sysun Cybersécurité</b>
