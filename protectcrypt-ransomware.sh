@@ -39,8 +39,8 @@ do
         
         if [ "$pidtokill" != "" ]
         then
-             #this is a simple action to trigger an alert email
-             mail -s "Ransomware attack" -a "From: email@domain.tld" myemail@mydomain.tld < /home/user/email.txt 
+             #this is a simple action to trigger an alert email. /home/user/email.txt contains the body of email.
+             /bin/mail -s "Ransomware attack" -a "From: email@domain.tld" myemail@mydomain.tld < /home/user/email.txt 
         fi
 done
 
