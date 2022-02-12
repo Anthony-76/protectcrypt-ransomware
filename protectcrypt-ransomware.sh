@@ -9,9 +9,9 @@
 # or FITNESS FOR A PARTICULAR PURPOSE
 
 
-# Author: Anthony Havé
-# Release version: 1.0.1 - Beta
-# Release date : 11 february 2022
+# Author: Anthony Havé - Sysun Cybersécurité
+# Release version: 1.0.1 
+# Release date : 2 february 2022
 # Tested on Debian Plateform
 
 
@@ -28,12 +28,12 @@ done
 while true
 do
         filetouched=`/bin/inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g'`
-        #ausearch read audit.log to find pid process
+        #ausearch check audit.log to find PID processes
         pidtokill=`/sbin/ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
-        #kill all process
+        #kill all processes
         /bin/kill -9 $pidtokill 2>&1 /dev/null
         pidresidue=`ps -ef | grep $filetouched | grep -v grep | awk -F " " '{print $2}'`
-        #kill process if ausearch had not match all pid
+        #kill process if ausearch had not match all PID
         /bin/kill -9 $pidresidue 2>&1 /dev/null
         
         if [ "$pidtokill" != "" ]
