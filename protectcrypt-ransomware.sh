@@ -30,7 +30,7 @@ done
 
 while true
 do
-        filetouched=`inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g'`
+        filetouched=`inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g' -e 's/.*\///g'`
         #ausearch check audit.log to find PID processes
         pidtokill=`ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
         #kill all processes
