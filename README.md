@@ -9,7 +9,7 @@ The folderfile table variable in the script contains files name such as pdf, png
 These files must be just a real file sample. Not a real document and the filename must start by "a" letter to be at the top of the folder.
 
 
-Name file example: /var/www/html/afile.pdf or /home/user/afile.docx etc....
+Name file example: /var/www/html/a_file_empty.pdf or /home/user/a_file_empty.doc etc....
 
 Note: This is the first release. Everyone are welcome to improve this script.
 
