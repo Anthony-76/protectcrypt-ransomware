@@ -10,11 +10,13 @@
 
 
 # Author: Anthony Havé - Sysun Cybersécurité
-# Release version: 1.0.1 
+# Release version: 1.0.2 
 # Release date : 2 february 2022
 # Tested on Debian Plateform
 # GNU General Public License v3.0
 
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH
 
 #path or file to check
 folderfile=( "/var/www/html/afile.pdf" "/home/user/afile.docx" )
@@ -28,19 +30,19 @@ done
 
 while true
 do
-        filetouched=`/bin/inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g'`
+        filetouched=`inotifywait -q ${folderfile[@]} | sed -e 's/ .*//g'`
         #ausearch check audit.log to find PID processes
-        pidtokill=`/sbin/ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
+        pidtokill=`ausearch -f $filetouched | grep ' pid=[0-9]* ' | sed -e 's/.* pid=//g' -e 's/ .*//g' | tr '\n' ' ' `
         #kill all processes
-        /bin/kill -9 $pidtokill 2>&1 /dev/null
+        kill -9 $pidtokill 2>&1 /dev/null
         pidresidue=`ps -ef | grep $filetouched | grep -v grep | grep -v inotifywait | awk -F " " '{print $2}'`
         #kill process if ausearch had not match all PID
-        /bin/kill -9 $pidresidue 2>&1 /dev/null
+        kill -9 $pidresidue 2>&1 /dev/null
         
         if [ "$pidtokill" != "" ]
         then
              #this is a simple action to trigger an alert email. /home/user/email.txt contains the body of email.
-             /bin/mail -s "Ransomware attack" -a "From: email@domain.tld" myemail@mydomain.tld < /home/user/email.txt 
+             mail -s "Ransomware attack" -a "From: email@domain.tld" myemail@mydomain.tld < /home/user/email.txt 
         fi
 done
 
