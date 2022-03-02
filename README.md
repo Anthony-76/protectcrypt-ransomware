@@ -1,6 +1,6 @@
 # protectcrypt-ransomware
  
-It's a simple bash script in order to avoid to crypt files or folders by ransowmare.
+It's a simple bash script in order to avoid to crypt files or folders by ransomware.
 
 If a ransomware starts to crypt files, the script will kill all PID processes initiated by Ransomware.
 
